@@ -35,13 +35,13 @@ yarn-error.log*
 .vercel
 
 # data/dragontail
-/public/dragontail/
-/public/dragontail/*
-./public/dragontail/*
-/dragontail/*
-./dragontail/*
-dragontail/*
-/src/backend/data/dragontail/*
-/src/backend/data/dragontail/
-./src/backend/data/dragontail/*
+#/public/dragontail/
+#/public/dragontail/*
+#./public/dragontail/*
+#/dragontail/*
+#./dragontail/*
+#dragontail/*
+#/src/backend/data/dragontail/*
+#/src/backend/data/dragontail/
+#./src/backend/data/dragontail/*
 node_modules
