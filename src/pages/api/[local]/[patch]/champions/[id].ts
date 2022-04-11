@@ -32,7 +32,7 @@
         try{
           const { local, patch, id } = req.query
   
-          const url= `${process.env.dragontail_url}/dragontail-${patch}/${patch}/data/${local}/champion.json`
+          const url= `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/champion.json`
   
           if(!await existsPath(url)){
             console.log("Directory does not exist.")

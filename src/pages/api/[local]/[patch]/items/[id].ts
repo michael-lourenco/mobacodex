@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       try{
         const { local, patch, id } = req.query
 
-        const url= `${process.env.dragontail_url}/dragontail-${patch}/${patch}/data/${local}/item.json`
+        const url= `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/item.json`
         console.log('url: ', url)
         if(!await existsPath(url)){
           console.log("Directory does not exist.")
