@@ -7,7 +7,14 @@ module.exports = withImages({
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['http://localhost:3000', 'https://localhost:3000', 'localhost', 'localhost:3000'],
+    domains: [
+      'http://localhost:3000', 
+      'https://localhost:3000', 
+      'localhost', 
+      'localhost:3000',
+      'http://www.mobacodex.com/',
+      'www.mobacodex.com/', 
+      'https://www.mobacodex.com/'],
   },
   env:{
     base_url:{
