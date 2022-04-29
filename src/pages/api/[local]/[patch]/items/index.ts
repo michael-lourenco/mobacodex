@@ -12,10 +12,11 @@ async function existsPath (directory) {
 
 export default async function handler(req, res) {
   try{
+    console.log('INDEX ITEMS')
     const { local, patch } = req.query
 
     const url= `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/item.json`
-
+  
     if(!await existsPath(url)){
       console.log("Directory does not exist.")
       res.status(200).json({})
