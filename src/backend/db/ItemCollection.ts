@@ -21,7 +21,7 @@ export default class ItemCollection implements ItemRepository {
         const response = await fetch(`/api/${localization}/${patch}/items`)
         
         const { data } = await response.json()
-        //console.log('RESPONSE ', JSON.stringify(data))
+        console.log('RESPONSE ', JSON.stringify(data))
         const allItems: Item[] = Object.entries(JSON.parse(JSON.stringify(data))).map(item => {
             const [id, itemData] = item
                 return new Item (
