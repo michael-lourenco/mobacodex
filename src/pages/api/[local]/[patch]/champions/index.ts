@@ -21,16 +21,16 @@ export default async function handler(req, res) {
   try{
     const { local, patch } = req.query
 
-    const url= `../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
+    const url= `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/champion.json`
     console.log('URL SEARCHED', url)
-    // if(!await existsPath(url)){
-    //   console.log("Directory does not exist.")
-    //   res.status(200).json({})
-    // } else {  
+    if(!await existsPath(url)){
+      console.log("Directory does not exist.")
+      res.status(200).json({})
+    } else {  
       console.log("Directory exists.")
       const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
       res.status(200).json(championsData)
-    //}
+    }
   }catch(error){
     console.log(error)
   }

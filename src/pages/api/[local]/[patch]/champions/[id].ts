@@ -32,17 +32,17 @@
         try{
           const { local, patch, id } = req.query
   
-          const url= `../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
+          const url= `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/champion.json`
   
-          // if(!await existsPath(url)){
-          //   console.log("Directory does not exist.")
-          //   res.status(200).json({})
-          // } else {  
+          if(!await existsPath(url)){
+            console.log("Directory does not exist.")
+            res.status(200).json({})
+          } else {  
             console.log("Directory exists.")
             const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
             const champion = championsData.data[id] ? championsData.data[id] : {}
             res.status(200).json(champion)
-          //}
+          }
         } catch(error) {
           res.status(500).json({
             error: 'Internal server error',
