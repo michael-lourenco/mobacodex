@@ -5,7 +5,7 @@
 //   }
   
 
-  const { promises: fs } = require('fs')
+const { promises: fs } = require('fs')
 var path = require("path");
 
 async function existsPath (directory) { 
@@ -22,15 +22,24 @@ export default async function handler(req, res) {
     const { local, patch } = req.query
 
     const url= `./src/backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
+    
     console.log('URL SEARCHED', url)
-    // if(!await existsPath(url)){
-    //   console.log("Directory does not exist.")
-    //   res.status(200).json({})
-    // } else {  
+    console.log('URL ABSOLUTE', require('path').resolve(url))
+    if(!await existsPath(require('path').resolve(url))){
+      console.log("Directory does not exist.", )
+      res.status(200).json({
+        url,
+        absoluteUrl: require('path').resolve(url),
+      })
+    } else {  
       console.log("Directory exists.")
       const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
-      res.status(200).json(championsData)
-    //}
+      res.status(200).json({
+        url,
+        absoluteUrl: require('path').resolve(url),
+        championsData
+      })
+    }
   }catch(error){
     console.log(error)
   }
