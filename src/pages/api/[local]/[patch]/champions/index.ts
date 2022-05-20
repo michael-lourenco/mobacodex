@@ -24,6 +24,7 @@ export default async function handler(req, res) {
     const url= `./src/backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
     
     console.log('URL SEARCHED', url)
+    
     console.log('URL ABSOLUTE', require('path').resolve(url))
     if(!await existsPath(url)){
       console.log("Directory does not exist.", )
