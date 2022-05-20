@@ -44,10 +44,17 @@
             res.status(200).json(champion)
           }
         } catch(error) {
-          res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-          })
+          if(error.message.includes('Cannot find module')) {
+            res.status(500).json({
+              error: 'Internal server error',
+              message: 'Cannot find this data'
+            })
+          } else {
+            res.status(500).json({
+              error: 'Internal server error',
+              message: error.message
+            })
+          }
         }
       }
   

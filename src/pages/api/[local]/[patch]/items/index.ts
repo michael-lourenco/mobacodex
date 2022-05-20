@@ -24,8 +24,18 @@ export default async function handler(req, res) {
       const itemsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/item.json`)
       res.status(200).json(itemsData)
    }
-  }catch(error){
-    console.log(error)
+  }catch(error) {
+    if(error.message.includes('Cannot find module')) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Cannot find this data'
+      })
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message
+      })
+    }
   }
 }
 
