@@ -18,8 +18,10 @@
     "ioredis": "^4.28.5",
     "next": "11.1.2",
     "next-images": "^1.8.2",
+    "next-swagger-doc": "^0.3.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "swagger-ui-react": "^4.11.1",
     "types": "^0.1.1"
   },
   "devDependencies": {
