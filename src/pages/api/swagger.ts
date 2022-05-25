@@ -95,6 +95,78 @@
 *           content:
 *             application/json:
 *               example: "Not Found"
+*   /api/{local}/{patch}/items:
+*     parameters:
+*       - in: path
+*         name: local
+*         description: Pass a valid local. (Example - en_US)
+*         required: true
+*         schema:
+*           type: string
+*       - in: path
+*         name: patch
+*         description: Pass a valid patch. (Example - 6.1.1)
+*         required: true
+*         schema:
+*           type: string
+*     get:
+*       tags:
+*         - Items
+*       summary: search all items
+*       operationId: searchItems
+*       description: By passing in the appropriate options, you can search and retrieve all items in the system
+*       responses:
+*         '200':
+*           description: search results matching criteria
+*           content:
+*             application/json:
+*               schema:
+*                 $ref: '#/components/schemas/Items'
+*         '404':
+*           description: bad input parameter
+*           content:
+*             application/json:
+*               example: "Not Found"
+*   /api/{local}/{patch}/items/{id}:
+*     parameters:
+*       - in: path
+*         name: id
+*         description: Pass a valid id. (Example - Aatrox)
+*         required: true
+*         schema:
+*           type: string
+*       - in: path
+*         name: local
+*         description: Pass a valid local. (Example - en_US)
+*         required: true
+*         schema:
+*           type: string
+*       - in: path
+*         name: patch
+*         description: Pass a valid patch. (Example - 6.1.1)
+*         required: true
+*         schema:
+*           type: string
+*     get:
+*       tags:
+*         - Items
+*       summary: search one item
+*       operationId: searchItem
+*       description: By passing in the appropriate options, you can search and retrieve one especific item in the system
+*       responses:
+*         '200':
+*           description: search results matching criteria
+*           content:
+*             application/json:
+*               schema:
+*                 $ref: '#/components/schemas/Item'
+*                
+*                   
+*         '404':
+*           description: bad input parameter
+*           content:
+*             application/json:
+*               example: "Not Found"
 * security:
 *  - auth: []
 * components:
@@ -220,7 +292,274 @@
 *             default:
 *               type: object
 *               items:
-*                $ref: '#/components/schemas/Champion'              
+*                $ref: '#/components/schemas/Champion'  
+*     Item: 
+*       type: object
+*       title: Item Schema
+*       description: Base Item Schema to API
+*       properties:
+*         name: 
+*          type: string
+*         rune:
+*          $ref: '#/components/schemas/RuneItem'
+*         group:
+*          type: string
+*         description: 
+*          type: string
+*         plaintext:
+*          type: string
+*         consumed:
+*          type: boolean
+*         stacks:
+*          type: number
+*         depth:
+*          type: number
+*         consumedOnFull:
+*          type: boolean
+*         from:
+*          type: array
+*          items:
+*           type: string  
+*         into: 
+*          type: array
+*          items:
+*           type: string
+*         specialRecipe:
+*          type: number
+*         inStore:
+*          type: boolean
+*         hideFromAll:
+*          type: boolean
+*         requiredChampion:
+*          type: string
+*         image:
+*          $ref: '#/components/schemas/ImageItem'
+*         gold:
+*          $ref: '#/components/schemas/GoldItem'
+*         tags:
+*          type: array
+*          items:
+*           type: string
+*         maps:
+*          $ref: '#/components/schemas/MapsItem'
+*         stats:
+*          $ref: '#/components/schemas/StatsItem'     
+*     ImageItem:
+*       type: object
+*       properties:
+*         full:
+*          type: string                    
+*         sprite:
+*          type: string                    
+*         group:
+*          type: string                    
+*         x:
+*          type: number                    
+*         y:
+*          type: number                    
+*         w:
+*          type: number                    
+*         h:
+*          type: number     
+*     GoldItem:
+*       type: object
+*       properties:
+*        base: 
+*         type: number
+*        purchasable: 
+*         type: boolean
+*        total: 
+*         type: number
+*        sell: 
+*         type: number  
+*     MapsItem:
+*       type: object
+*       properties:
+*        key:
+*         type: boolean
+*     RuneItem:
+*       type: object
+*       properties:
+*        isrune: 
+*         type: boolean
+*        tier: 
+*         type: number
+*        type: 
+*         type: string
+*     StatsItem:
+*       type: object
+*       properties:
+*         FlatHPPoolMod: 
+*           type: number         
+*         rFlatHPModPerLevel: 
+*           type: number
+*         FlatMPPoolMod: 
+*           type: number
+*         rFlatMPModPerLevel: 
+*           type: number
+*         PercentHPPoolMod: 
+*           type: number
+*         PercentMPPoolMod: 
+*           type: number
+*         FlatHPRegenMod: 
+*           type: number
+*         rFlatHPRegenModPerLevel: 
+*           type: number
+*         PercentHPRegenMod: 
+*           type: number
+*         FlatMPRegenMod: 
+*           type: number
+*         rFlatMPRegenModPerLevel: 
+*           type: number
+*         PercentMPRegenMod: 
+*           type: number
+*         FlatArmorMod: 
+*           type: number
+*         rFlatArmorModPerLevel: 
+*           type: number
+*         PercentArmorMod: 
+*           type: number
+*         rFlatArmorPenetrationMod: 
+*           type: number
+*         rFlatArmorPenetrationModPerLevel: 
+*           type: number
+*         rPercentArmorPenetrationMod: 
+*           type: number
+*         rPercentArmorPenetrationModPerLevel: 
+*           type: number
+*         FlatPhysicalDamageMod: 
+*           type: number
+*         rFlatPhysicalDamageModPerLevel: 
+*           type: number
+*         PercentPhysicalDamageMod: 
+*           type: number
+*         FlatMagicDamageMod: 
+*           type: number
+*         rFlatMagicDamageModPerLevel: 
+*           type: number
+*         PercentMagicDamageMod: 
+*           type: number
+*         FlatMovementSpeedMod: 
+*           type: number
+*         rFlatMovementSpeedModPerLevel: 
+*           type: number
+*         PercentMovementSpeedMod: 
+*           type: number
+*         rPercentMovementSpeedModPerLevel: 
+*           type: number
+*         FlatAttackSpeedMod: 
+*           type: number
+*         PercentAttackSpeedMod: 
+*           type: number
+*         rPercentAttackSpeedModPerLevel: 
+*           type: number
+*         rFlatDodgeMod: 
+*           type: number
+*         rFlatDodgeModPerLevel: 
+*           type: number
+*         PercentDodgeMod: 
+*           type: number
+*         FlatCritChanceMod: 
+*           type: number
+*         rFlatCritChanceModPerLevel: 
+*           type: number
+*         PercentCritChanceMod: 
+*           type: number
+*         FlatCritDamageMod: 
+*           type: number
+*         rFlatCritDamageModPerLevel: 
+*           type: number
+*         PercentCritDamageMod: 
+*           type: number
+*         FlatBlockMod: 
+*           type: number
+*         PercentBlockMod: 
+*           type: number
+*         FlatSpellBlockMod: 
+*           type: number
+*         rFlatSpellBlockModPerLevel: 
+*           type: number
+*         PercentSpellBlockMod: 
+*           type: number
+*         FlatEXPBonus: 
+*           type: number
+*         PercentEXPBonus: 
+*           type: number
+*         rPercentCooldownMod: 
+*           type: number
+*         rPercentCooldownModPerLevel: 
+*           type: number
+*         rFlatTimeDeadMod: 
+*           type: number
+*         rFlatTimeDeadModPerLevel: 
+*           type: number
+*         rPercentTimeDeadMod: 
+*           type: number
+*         rPercentTimeDeadModPerLevel: 
+*           type: number
+*         rFlatGoldPer10Mod: 
+*           type: number
+*         rFlatMagicPenetrationMod: 
+*           type: number
+*         rFlatMagicPenetrationModPerLevel: 
+*           type: number
+*         rPercentMagicPenetrationMod: 
+*           type: number
+*         rPercentMagicPenetrationModPerLevel: 
+*           type: number
+*         FlatEnergyRegenMod: 
+*           type: number
+*         rFlatEnergyRegenModPerLevel: 
+*           type: number
+*         FlatEnergyPoolMod: 
+*           type: number
+*         rFlatEnergyModPerLevel: 
+*           type: number
+*         PercentLifeStealMod: 
+*           type: number
+*         PercentSpellVampMod:
+*           type: number
+*     Items:
+*       type: object
+*       title: Items Schema
+*       description: Base Items Schema to API
+*       properties:
+*        type:
+*         type: string
+*        version:
+*          type: string
+*        basic:
+*          type: object
+*          items:
+*           $ref: '#/components/schemas/Item'
+*        data:
+*          type: object
+*          items:
+*           $ref: '#/components/schemas/Item'
+*        default:
+*          type: object
+*          items:
+*           $ref: '#/components/schemas/Item'
+*        groups:
+*          type: array
+*          items:
+*           type: object
+*           properties:
+*            id:
+*             type: string
+*            MaxGroupOwnable:
+*             type: string
+*        tree:
+*          type: array
+*          items:
+*           type: object
+*           properties:
+*            header:
+*             type: string
+*            tags:
+*             type: array
+*             items:
+*              type: string
 *   securitySchemes:
 *     auth:
 *       type: http
