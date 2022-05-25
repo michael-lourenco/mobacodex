@@ -173,7 +173,7 @@
 *   schemas:
 *     Champion: 
 *       type: object
-*       title: Champion Schema
+*       title: Champion
 *       description: Base Champion Schema to API
 *       properties:
 *         version: 
@@ -202,6 +202,7 @@
 *          $ref: '#/components/schemas/StatsChampion'
 *     ImageChampion:
 *       type: object
+*       title: Image Champion
 *       properties:
 *         full:
 *          type: string                    
@@ -219,6 +220,7 @@
 *          type: number 
 *     InfoChampion:
 *       type: object
+*       title: Info Champion
 *       properties:
 *        attack: 
 *         type: number
@@ -230,6 +232,7 @@
 *         type: number 
 *     StatsChampion:
 *       type: object
+*       title: Stats Champion
 *       properties:
 *         hp:
 *          type: number                      
@@ -273,7 +276,7 @@
 *          type: number  
 *     Champions:
 *       type: object
-*       title: Champions Schema
+*       title: Champions
 *       description: Base Champions Schema to API
 *       properties:
 *         championsData: 
@@ -295,7 +298,7 @@
 *                $ref: '#/components/schemas/Champion'  
 *     Item: 
 *       type: object
-*       title: Item Schema
+*       title: Item
 *       description: Base Item Schema to API
 *       properties:
 *         name: 
@@ -346,6 +349,7 @@
 *          $ref: '#/components/schemas/StatsItem'     
 *     ImageItem:
 *       type: object
+*       title: Image Item
 *       properties:
 *         full:
 *          type: string                    
@@ -363,6 +367,7 @@
 *          type: number     
 *     GoldItem:
 *       type: object
+*       title: Gold Item
 *       properties:
 *        base: 
 *         type: number
@@ -374,11 +379,13 @@
 *         type: number  
 *     MapsItem:
 *       type: object
+*       title: Maps Item
 *       properties:
 *        key:
 *         type: boolean
 *     RuneItem:
 *       type: object
+*       title: Rune Item
 *       properties:
 *        isrune: 
 *         type: boolean
@@ -388,6 +395,7 @@
 *         type: string
 *     StatsItem:
 *       type: object
+*       title: Stats Item
 *       properties:
 *         FlatHPPoolMod: 
 *           type: number         
@@ -521,7 +529,7 @@
 *           type: number
 *     Items:
 *       type: object
-*       title: Items Schema
+*       title: Items
 *       description: Base Items Schema to API
 *       properties:
 *        type:
