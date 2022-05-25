@@ -16,6 +16,9 @@ module.exports = {
       'www.mobacodex.com/', 
       'https://www.mobacodex.com/'],
   },
+  typescript: {
+    ignoreBuildErrors: true
+  }
   // env:{
   //   BASE_URL: 'http://www.mobacodex.com',
   //   DRAGONTAIL_URL:'http://www.mobacodex.com/src/backend/data/dragontail',
