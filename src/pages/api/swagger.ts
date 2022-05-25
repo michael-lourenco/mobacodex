@@ -131,7 +131,7 @@
 *     parameters:
 *       - in: path
 *         name: id
-*         description: Pass a valid id. (Example - Aatrox)
+*         description: Pass a valid id. (Example - 1004)
 *         required: true
 *         schema:
 *           type: string
