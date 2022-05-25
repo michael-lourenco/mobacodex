@@ -18,32 +18,31 @@
 *     name: Apache 2.0
 *     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 * tags:
-*   - name: champions
+*   - name: Champions
 *     description: champions data
-*   - name: items
+*   - name: Items
 *     description: items data
 * paths:
 *   /api/{local}/{patch}/champions:
 *     parameters:
 *       - in: path
 *         name: local
-*         description: pass an required search string for looking up champions
+*         description: Pass a valid local. (Example - en_US)
 *         required: true
 *         schema:
 *           type: string
 *       - in: path
 *         name: patch
-*         description: pass an required search string for looking up champions
+*         description: Pass a valid patch. (Example - 6.1.1)
 *         required: true
 *         schema:
 *           type: string
 *     get:
 *       tags:
-*         - champions
-*       summary: searches champions
+*         - Champions
+*       summary: search all champions
 *       operationId: searchChampions
-*       description: By passing in the appropriate options, you can search for
-*         available champions in the system
+*       description: By passing in the appropriate options, you can search and retrieve all champions in the system
 *       responses:
 *         '200':
 *           description: search results matching criteria
@@ -60,30 +59,28 @@
 *     parameters:
 *       - in: path
 *         name: id
-*         description: pass an required search string for looking up champions
+*         description: Pass a valid id. (Example - Aatrox)
 *         required: true
 *         schema:
 *           type: string
 *       - in: path
 *         name: local
-*         description: pass an required search string for looking up champions
+*         description: Pass a valid local. (Example - en_US)
 *         required: true
 *         schema:
 *           type: string
 *       - in: path
 *         name: patch
-*         description: pass an required search string for looking up champions
+*         description: Pass a valid patch. (Example - 6.1.1)
 *         required: true
 *         schema:
 *           type: string
 *     get:
 *       tags:
-*         - champions
-*       summary: search a champion
+*         - Champions
+*       summary: search one champion
 *       operationId: searchChampion
-*       description: |
-*         By passing in the appropriate options, you can search for
-*         available champion in the system
+*       description: By passing in the appropriate options, you can search and retrieve one especific champion in the system
 *       responses:
 *         '200':
 *           description: search results matching criteria
