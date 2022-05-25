@@ -18,8 +18,28 @@ export const getStaticProps: GetStaticProps = async () => {
       openapi: '3.0.0',
       info: {
         title: 'Moba Codex API',
-        version: '1.0',
+        description: 'Get data about Champions and Items of LoL with Moba Codex API',
+        termsOfService: 'https://www.mobacodex.com/terms',
+        contact:{
+          name: 'Michael Lourenço',
+          email: 'kontempler@gmail.com'
+        },
+        license:{
+          name: 'Apache 2.0',
+          url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+        },
+        version: '0.0.1',
       },
+      servers:[ 
+        {
+          url: 'https://www.mobacodex.com/',
+          description: 'base for mobacodex api production'
+        },  
+        {
+          url: 'http://localhost:3000/',
+          description: 'base for mobacodex api local'
+        }
+      ],
     },
   });
 
