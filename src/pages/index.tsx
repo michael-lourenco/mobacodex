@@ -17,7 +17,6 @@ export default function Home() {
             <button onClick = {() => signOut()}>
               Sign out
             </button>
-            <a href="/api/auth/signout"></a>
           </>
         ):(
         <button onClick = {() => signIn("github")}>
