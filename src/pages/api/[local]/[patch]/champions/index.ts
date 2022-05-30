@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // const content = fs.readFileSync(require('path').resolve(url), 'utf8')
     // const contentJson = JSON.parse(content)
     // console.log('CONTENT', contentJson)
-    fs.readFile(require('path').resolve(url),
+    fs.readFile(`./src/backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`,
         {encoding:'utf8', flag:'r'},
         function(err, data) {
       if(err){
