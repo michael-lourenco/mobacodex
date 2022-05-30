@@ -12,15 +12,14 @@ async function existsPath(directory) {
 
 export default async function handler(req, res) {
   try {
-    console.log('INDEX ITEMS')
     const { local, patch } = req.query
-    const url = `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/item.json`
-    console.log('URL SEARCHED', url)
+    // const url = `${process.env.DRAGONTAIL_URL}/dragontail-${patch}/${patch}/data/${local}/item.json`
+    // console.log('URL SEARCHED', url)
     // if(!await existsPath(url)){
     //   console.log("Directory does not exist.")
     //   res.status(200).json({})
     // } else {  
-    console.log("Directory exists.")
+    // console.log("Directory exists.")
     const itemsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/item.json`)
     res.status(200).json(itemsData)
     //

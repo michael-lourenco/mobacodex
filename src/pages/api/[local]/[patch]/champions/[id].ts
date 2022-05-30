@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         //   console.log("Directory does not exist.")
         //   res.status(200).json({})
         // } else {  
-        console.log("Directory exists.")
+        // console.log("Directory exists.")
         const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
         const champion = championsData.data[id] ? championsData.data[id] : {}
         res.status(200).json(champion)

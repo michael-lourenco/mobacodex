@@ -21,10 +21,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
  try {
    const { local, patch } = req.query
 
-   const url = `./src/backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
-    console.log('URL SEARCHED', url)
+  //  const url = `./src/backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`
+  //   console.log('URL SEARCHED', url)
 
-    console.log('URL ABSOLUTE', require('path').resolve(url))
+  //   console.log('URL ABSOLUTE', require('path').resolve(url))
     // if(!await existsPath(url)){
     //   console.log("Directory does not exist.", )
     //   res.status(200).json({
@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //     absoluteUrl: require('path').resolve(url),
     //   })
     // } else {  
-    console.log("Directory exists.")
+    // console.log("Directory exists.")
     const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
     res.status(200).json(championsData)
     //}
