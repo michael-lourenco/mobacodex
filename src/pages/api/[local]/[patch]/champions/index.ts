@@ -34,11 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // } else {  
     console.log("Directory exists.")
     const championsData = await import(`../../../../../backend/data/dragontail/dragontail-${patch}/${patch}/data/${local}/champion.json`)
-    res.status(200).json({
-      url,
-      absoluteUrl: require('path').resolve(url),
-      championsData
-    })
+    res.status(200).json(championsData)
     //}
   } catch (error) {
     if (error.message.includes('Cannot find module')) {
