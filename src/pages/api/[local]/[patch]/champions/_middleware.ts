@@ -8,6 +8,7 @@ export async function middleware(req: NextRequest ) {
     secret: process.env.SECRET,
   });
 
+  console.log('SESSAO', session)
   if(!session) {
     return new Response("Auth required", {
       status: 401,
