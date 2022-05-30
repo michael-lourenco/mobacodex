@@ -45,7 +45,6 @@ export default async function handler(req, res) {
       } catch (error) {
         if (error.message.includes('Cannot find module')) {
           res.status(500).json({
-            error: 'Internal server error',
             message: 'Cannot find this data'
           })
         } else {
