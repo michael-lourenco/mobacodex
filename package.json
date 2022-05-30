@@ -17,6 +17,7 @@
     "heroicons": "^1.0.5",
     "ioredis": "^4.28.5",
     "next": "11.1.2",
+    "next-auth": "^4.3.4",
     "next-images": "^1.8.2",
     "next-swagger-doc": "^0.3.4",
     "react": "17.0.2",

@@ -1,53 +1,31 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { createSwaggerSpec } from 'next-swagger-doc';
-import dynamic from 'next/dynamic';
-import 'swagger-ui-react/swagger-ui.css';
+import Head from 'next/head'
+import { signIn, signOut, useSession } from "next-auth/react";
 
-const SwaggerUI = dynamic<{
-  spec: any;
-}>(import('swagger-ui-react'), { ssr: false });
+export default function Home() {
+  const { data: session } = useSession();
+  return(
+    <>
+      <Head>
+        <title>Moba Codex API</title>
+      </Head>
 
-function ApiDoc({ spec }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <SwaggerUI spec={spec} />;
+      <h1>MOBA CODEX</h1>
+      <p>
+        {session ? (
+          <>
+            <h1>{session?.user?.name}</h1>
+            <button onClick = {() => signOut()}>
+              Sign out
+            </button>
+            <a href="/api/auth/signout"></a>
+          </>
+        ):(
+        <button onClick = {() => signIn("github")}>
+          Sign in
+        </button>
+        )}
+
+      </p>
+    </>
+  )
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const spec: Record<string, any> = createSwaggerSpec({
-    apiFolder: './src/pages/api',
-    definition: {
-      openapi: '3.0.0',
-      info: {
-        title: 'Moba Codex API',
-        description: 'Get data about Champions and Items of LoL with Moba Codex API',
-        termsOfService: 'https://www.mobacodex.com/terms',
-        contact:{
-          name: 'Michael Lourenço',
-          email: 'kontempler@gmail.com'
-        },
-        license:{
-          name: 'Apache 2.0',
-          url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-        },
-        version: '0.0.1',
-      },
-      servers:[ 
-        {
-          url: 'https://www.mobacodex.com/',
-          description: 'base for mobacodex api production'
-        },  
-        {
-          url: 'http://localhost:3000/',
-          description: 'base for mobacodex api local'
-        }
-      ],
-    },
-  });
-
-  return {
-    props: {
-      spec,
-    },
-  };
-};
-
-export default ApiDoc;
