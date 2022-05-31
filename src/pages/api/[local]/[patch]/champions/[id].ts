@@ -14,7 +14,7 @@
 //   }
 
 const { promises: fs } = require('fs')
-var path = require("path");
+var path = require("path")
 
 async function existsPath(directory) {
   try {
@@ -60,4 +60,3 @@ export default async function handler(req, res) {
     console.log(error)
   }
 }
-

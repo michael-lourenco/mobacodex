@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react"
 import Link from 'next/link'
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { data: session } = useSession()
   return(
     <>
       <Head>
