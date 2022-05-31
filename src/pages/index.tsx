@@ -9,41 +9,37 @@ export default function Home() {
       <Head>
         <title>Moba Codex API</title>
       </Head>
-      <div className='bg-gray'>
-        <h1>MOBA CODEX</h1>
-        <div>
-          {session ? (
+
+      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <div>
+            <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">MOBA CODEX</h1>
+          </div>
+        
+          {session ? (  
             <>
-              <h1>{session?.user?.name}</h1>
-              <button onClick = {() => signOut()}>
-                Sign out
-              </button>
-              <Link href="/doc-api">
-                <a>Go to API</a>
-              </Link>
+              <h2 className='block'>{session?.user?.name}</h2>
+              <div className="mt-8 space-y-6">
+                <div>
+                  <button onClick = {() => signOut()} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Sign out
+                  </button>
+                </div>
+                <Link href="/doc-api">
+                  <a>Go to API</a>
+                </Link>
+              </div>
             </>
           ):(
-            <button 
-            onClick = {() => signIn("github")}
-            className = {`
-            sm:flex
-            items-center
-            cursor-pointer
-            bg-gradient-to-r
-            from-yellow-300
-            to-yellow-600
-            w-14
-            lg:w-24
-            h-8
-            p-1
-            rounded-full
-          `}
-            >
-              Sign in
-            </button>
+              <div className="mt-8 space-y-6">
+                <div>
+                  <button onClick = {() => signIn("github")} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Sign in
+                  </button>
+                </div>
+              </div>
           )}
-
-        </div>
+          </div>
       </div>
     </>
   )
