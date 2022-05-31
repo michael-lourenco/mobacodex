@@ -18,15 +18,15 @@ export default function Home() {
         
           {session ? (  
             <>
-              <h2 className='block'>{session?.user?.name}</h2>
+              <h2 className='block text-center text-2xl'>{session?.user?.name}</h2>
               <div className="mt-8 space-y-6">
                 <div>
                   <button onClick = {() => signOut()} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Sign out
                   </button>
                 </div>
-                <Link href="/doc-api">
-                  <a>Go to API</a>
+                <Link href="/doc-api" >
+                  <a className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Go to API</a>
                 </Link>
               </div>
             </>
