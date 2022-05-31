@@ -11,10 +11,14 @@
     "heroku-postbuild": "npm run build --target=heroku"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.1.2",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@types/next-server": "^9.0.0",
     "firebase": "8.8.0",
+    "framer-motion": "^6",
     "heroicons": "^1.0.5",
     "ioredis": "^4.28.5",
     "next": "12.1.0",
