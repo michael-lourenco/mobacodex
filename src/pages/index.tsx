@@ -7,7 +7,7 @@ export default function Home() {
   return(
     <>
       <Head>
-        <title>Moba Codex API</title>
+        <title>MOBA CODEX API</title>
       </Head>
 
       <div className="flex h-screen w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -25,17 +25,18 @@ export default function Home() {
                 </Link>
                 <div>
                   <button onClick = {() => signOut()} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Sign out
+                    SIGN OUT
                   </button>
                 </div>
               </div>
             </>
           ):(
             <>
+              <h2 className='block text-center text-1xl'>GET DATA ABOUT CHAMPIONS AND ITEMS OF LOL</h2>
               <div className="mt-8 space-y-6">
                 <div>
                   <button onClick = {() => signIn("github")} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Sign in with GitHub
+                    SIGN IN WITH GITHUB
                   </button>
                 </div>
               </div>
