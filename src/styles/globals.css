@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --logo-font: Permanent Marker, cursive, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --base-font: BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;  
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--base-font);
 }
 
 a {
@@ -13,4 +24,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.logo {
+  font-family: var(--logo-font);
 }
