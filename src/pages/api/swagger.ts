@@ -7,7 +7,7 @@
 *  - url: http://localhost:3000/
 *    description: base for mobacodex api local
 * info:
-*   title: Moba Codex API
+*   title: MOBA CODEX API
 *   description: Get data about Champions and Items of LoL with Moba Codex API
 *   version: "0.0.1"
 *   termsOfService: https://www.mobacodex.com/terms
