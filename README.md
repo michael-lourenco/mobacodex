@@ -15,7 +15,7 @@
 
 ## Login Screen
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/48114463/171239881-663f931c-5a8f-4842-b83b-6cbaeacfbde4.png">
+  <img src="https://user-images.githubusercontent.com/48114463/172069955-1b863c7e-c51d-4783-97ed-28d41bdc96cf.png">
 </div>
 
 ## Authorization Screen
@@ -25,7 +25,7 @@
 
 ## Logged Screen
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/48114463/171243402-f63965b4-9934-40b2-977c-da2140dd5284.png">
+  <img src="https://user-images.githubusercontent.com/48114463/172070019-53fa1f55-388f-4311-8ef6-3d865468d3de.png">
 </div>
 
 # ISSUES
